@@ -4,7 +4,10 @@ import com.twitter.finagle.http.Status._
 import com.twitter.finatra.http.EmbeddedHttpServer
 import com.twitter.inject.server.FeatureTest
 
-class HelloWorldControllerTest extends FeatureTest {
+/**
+  * Feature test approach
+  */
+class HelloWorldFeatureTest extends FeatureTest {
   override protected def server = new EmbeddedHttpServer(new HelloWorldServer)
 
   "HelloWorldServer" should {
