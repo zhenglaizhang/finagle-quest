@@ -1,4 +1,4 @@
-package net.zhenglai.finagle
+package net.zhenglai.finatra
 
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
@@ -11,7 +11,7 @@ class HelloWorldController extends Controller {
   }
 
   post("/hi") {hiRequest: HiRequest =>
-    "hello "+ hiRequest.name + "with id "+ hiRequest.id
+    "hello "+ hiRequest.name + " with id "+ hiRequest.id
   }
 }
 
