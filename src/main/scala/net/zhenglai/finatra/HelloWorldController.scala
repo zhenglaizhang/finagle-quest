@@ -11,11 +11,12 @@ class HelloWorldController extends Controller {
   }
 
   post("/hi") {hiRequest: HiRequest =>
-    "hello "+ hiRequest.name + " with id "+ hiRequest.id
+    "Hello "+ hiRequest.name + " with id " + hiRequest.id + " and " + hiRequest.age.fold("age missing")("age " + _)
   }
 }
 
 case class HiRequest(
   id: Long,
-  name: String
+  name: String,
+  age: Option[Int]
 )
