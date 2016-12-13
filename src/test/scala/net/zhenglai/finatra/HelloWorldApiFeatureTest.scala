@@ -6,8 +6,13 @@ import com.twitter.inject.server.FeatureTest
 
 /**
   * Feature test approach
+  *
+  * Feature testing:
+  *   A hybrid of an integration and component test enabling test-doubles and black-box/white-box assertions.
+  *
+  *   If you don’t have a feature test, you might not even have a feature.
   */
-class HelloWorldFeatureTest extends FeatureTest {
+class HelloWorldApiFeatureTest extends FeatureTest {
   override protected def server = new EmbeddedHttpServer(new HelloWorldServer)
 
   "HelloWorldServer" should {
