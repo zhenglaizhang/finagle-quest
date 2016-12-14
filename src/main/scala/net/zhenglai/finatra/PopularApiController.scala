@@ -5,7 +5,10 @@ import com.twitter.finagle.http.{ Request, Response }
 import com.twitter.finatra.http.filters.{ LoggingMDCFilter, TraceIdMDCFilter }
 import com.twitter.finatra.http.routing.HttpRouter
 import com.twitter.finatra.http.{ Controller, HttpServer }
+import com.twitter.finatra.request.Header
+import com.twitter.finatra.validation.{ NotEmpty, PastTime }
 import com.twitter.inject.TwitterModule
+import org.joda.time.DateTime
 
 class PopularApiController @Inject()(
   userRepository: UserRepository,
@@ -16,6 +19,12 @@ class PopularApiController @Inject()(
 
   }
 }
+
+case class PopularPostRequest(
+  @PastTime start: DateTime,
+  @PastTime end: DateTime,
+  @Header @NotEmpty api_key: String
+)
 
 trait UserRepository
 
